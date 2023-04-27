@@ -1,0 +1,85 @@
+<!-- <div class="account-pages my-5 pt-sm-5"> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-12">
+            <div class="card overflow-hidden">
+            <div class="card-body pt-0">
+                <div class="p-2">
+                <form class="needs-validation" name="registerForm" [formGroup]="typeValidationForm">
+    
+                    <div class="mb-3 row col-md-12">
+                        <div class="col-md-4">
+                            <label for="name" class="form-label">Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name" />
+                        </div>
+                    </div>    
+                    <div class="mb-3 row col-md-12">
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">Company</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" formControlName="company" class="form-control"id="company" placeholder="Enter company" />
+                    </div>
+                    </div>
+                        <!-- Position -->
+                <div class="mb-3 row col-md-12">
+                    <div class="col-md-4">
+                        <label class="inline-block mb-2">Position</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" formControlName="position" class="form-control" id="position" placeholder="Enter position" />
+                    </div>
+                </div>
+                <!-- Department -->
+                <div class="mb-3 row col-md-12">
+                    <div class="col-md-4">
+                        <label class="inline-block mb-2">Department</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" formControlName="department" class="form-control"id="department" placeholder="Enter department" />
+                    </div>
+                </div>
+                <!-- Contact -->
+                <div class="mb-3 row col-md-12 ">
+                    <div class="col-md-8">
+                        <label class="inline-block mb-2 col-span-2 ">Contact</label>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button 
+                            class="btn btn-primary" (click)="addField()">
+                            Add Fields +
+                        </button>
+                    </div>
+                </div>
+                <div formArrayName="contacts" >
+                    <div *ngFor="let data1 of contacts.controls; let i=index;">
+                        <div [formGroupName]="i" class="mb-3 grid grid-cols-4">
+                            <div class="mb-3  row col-md-12">
+                            <!-- Contact Field -->
+                                <div class="col-md-5">
+                                <label class="inline-block mb-2 ml-0">Contact Field</label>
+                                <input type="text" formControlName="contactFields" class="form-control"id="department" placeholder="Enter Contact Field" />
+                            </div>
+                            <!-- Contact Value -->
+                            <div class="col-md-5">
+                                <label class="inline-block w-12/12 mb-2">Contact Value</label>
+                                <input type="text" formControlName="contactValue" class="form-control"id="department" placeholder="Enter Contact Value" />
+                            </div> 
+                            <div class="col-md-2 mt-4 text-end">
+                                <i class="fa fa-trash-o text-danger"(click)="removeField(i)" ></i>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- end row -->
+</div>
+    <!-- end container -->
+  <!-- </div> -->

@@ -1,0 +1,30 @@
+.main{
+    background-color: aliceblue;
+}
+.color{
+    color:blue
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 140px;
+    height: 100%;
+    background-color: #f1f1f1;
+  }
+  li a {
+    height: 130px;
+    display: block;
+    color: #0c0909;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #f89f06;
+    color: #fff;
+  }
+  .icon {
+    margin-right: 10px;
+  }

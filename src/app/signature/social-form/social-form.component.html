@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-6 col-xl-12">
+      <div class="card overflow-hidden" style="width: 29.7rem;">
+        <div class="card-body pt-0">
+          <div class="p-2">
+            <form [formGroup]="typeValidationForm" >
+                    
+                        <div formArrayName="socialMedia" >
+                        <div *ngFor="let data1 of socialMedia.controls; let i=index;">
+                          <div [formGroupName]="i" class="mb-3">{{i}}
+                            <div class="mb-3 row col-md-12">
+                              <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                                  <i class="{{data1.value.icon}}"></i>
+                                </div>
+                              </div>
+                              <div class="col-md-8 mt-4">
+                                <input type="text" formControlName="link" class="form-control"
+                                    placeholder="Social Media Link"  >
+                                    
+                              </div>
+                              <div class="col-md-2 mt-4">
+                                <i class="fa fa-trash-o text-danger"(click)="removeField(i)" ></i>
+                              </div>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+            </form>
+
+            <div class="wrapper">
+              <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline" *ngFor="let info of iconDetails"> 
+                  <li style="float: left;" (click)="addField(info)"><i class="{{info.icon}}"></i></li> 
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
