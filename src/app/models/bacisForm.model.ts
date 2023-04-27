@@ -1,9 +1,13 @@
 export default interface BasicForm{
     // basId?:string;
-    name?: string;
+    fname?: string;
+    lname?: string;
+    email? : string;
+    mobileNo?: string;
     company?: string;
     position?: string;
     department?: string;
+    address? :string;
     contacts:Contacts
 }
 

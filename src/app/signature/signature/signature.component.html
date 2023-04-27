@@ -14,10 +14,14 @@
                     </div>
                     <div class="col-md-6">
                         <span  *ngFor="let data of sharedData" [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
-                            <label for="" >Name: {{data.name.value}}</label><br>
+                            <label for="" >First Name: {{data.fname.value}}</label><br>
+                            <label for="" >Last Name: {{data.lname.value}}</label><br>
+                            <label for="" >Email: {{data.email.value}}</label><br>
+                            <label for="" >Mobile Number: {{data.mobileNo.value}}</label><br>
                             <label class="">Company: {{data.company.value}}</label><br>
                             <label class="">Position : {{data.position.value}}</label><br>
-                            <label class="">Department: {{data.department.value}}</label>
+                            <label class="">Department: {{data.department.value}}</label><br>
+                            <label class="">Address: {{data.address.value}}</label>
                         </span> <br>
                         <div *ngFor="let contact of sharedData[0].contacts.value" [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
                             <label for="">Field: {{contact.contactFields}}</label><br>

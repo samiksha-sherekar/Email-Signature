@@ -66,10 +66,14 @@ async onSubmit(){
     this.data={
       uid: this.user?.uid as string,
       basicForm: {  
-        name:this.sharedData[0].name.value,
+        fname:this.sharedData[0].fname.value,
+        lname:this.sharedData[0].lname.value,
+        email:this.sharedData[0].email.value,
+        mobileNo:this.sharedData[0].mobileNo.value,
         company:this.sharedData[0].company.value,
         position:this.sharedData[0].position.value,
         department:this.sharedData[0].department.value,
+        address:this.sharedData[0].address.value,
         contacts: this.sharedData[0].contacts.value,
       },
       imageForm : {

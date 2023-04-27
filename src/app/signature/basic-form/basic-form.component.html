@@ -6,15 +6,41 @@
             <div class="card-body pt-0">
                 <div class="p-2">
                 <form class="needs-validation" name="registerForm" [formGroup]="typeValidationForm">
-    
+                    <p><b>Personal Details</b></p>
                     <div class="mb-3 row col-md-12">
                         <div class="col-md-4">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="name" class="form-label">First Name</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name" />
+                            <input type="text" formControlName="fname" class="form-control" id="name" placeholder="Enter name" />
+                        </div>
+                    </div>   
+                    <div class="mb-3 row col-md-12">
+                        <div class="col-md-4">
+                            <label for="name" class="form-label">Last Name</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="lname" class="form-control" id="name" placeholder="Enter name" />
                         </div>
                     </div>    
+                    <div class="mb-3 row col-md-12">
+                        <div class="col-md-4">
+                            <label for="name" class="form-label">Email</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="email" class="form-control" id="name" placeholder="Enter Email" />
+                        </div>
+                    </div>    
+                    <div class="mb-3 row col-md-12">
+                        <div class="col-md-4">
+                            <label for="name" class="form-label">Mobile Number</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="mobileNo" class="form-control" id="name" placeholder="Enter Mobile Number" />
+                        </div>
+                    </div> 
+                    
+                    <p><b>Company Details</b></p>
                     <div class="mb-3 row col-md-12">
                     <div class="col-md-4">
                         <label for="email" class="form-label">Company</label>
@@ -41,8 +67,17 @@
                         <input type="text" formControlName="department" class="form-control"id="department" placeholder="Enter department" />
                     </div>
                 </div>
+                <!-- Address -->
+                <div class="mb-3 row col-md-12">
+                    <div class="col-md-4">
+                        <label class="inline-block mb-2">Address</label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" formControlName="address" class="form-control" id="department" placeholder="Enter Address " />
+                    </div>
+                </div>
                 <!-- Contact -->
-                <div class="mb-3 row col-md-12 ">
+                <!-- <div class="mb-3 row col-md-12 ">
                     <div class="col-md-8">
                         <label class="inline-block mb-2 col-span-2 ">Contact</label>
                     </div>
@@ -52,17 +87,17 @@
                             Add Fields +
                         </button>
                     </div>
-                </div>
-                <div formArrayName="contacts" >
+                </div> -->
+                <!-- <div formArrayName="contacts" >
                     <div *ngFor="let data1 of contacts.controls; let i=index;">
                         <div [formGroupName]="i" class="mb-3 grid grid-cols-4">
                             <div class="mb-3  row col-md-12">
-                            <!-- Contact Field -->
+                            Contact Field
                                 <div class="col-md-5">
                                 <label class="inline-block mb-2 ml-0">Contact Field</label>
                                 <input type="text" formControlName="contactFields" class="form-control"id="department" placeholder="Enter Contact Field" />
                             </div>
-                            <!-- Contact Value -->
+                            Contact Value
                             <div class="col-md-5">
                                 <label class="inline-block w-12/12 mb-2">Contact Value</label>
                                 <input type="text" formControlName="contactValue" class="form-control"id="department" placeholder="Enter Contact Value" />
@@ -73,7 +108,7 @@
                         </div>
                         </div>
                     </div>
-                    </div>
+                    </div> -->
                 </form>
                 </div>
             </div>

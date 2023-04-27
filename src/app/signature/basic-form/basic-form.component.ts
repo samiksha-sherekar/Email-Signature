@@ -16,7 +16,16 @@ export class BasicFormComponent implements OnInit {
   FormData:any[]=[]
   basicData:BasicForm[]=[];
   user: firebase.User | null = null
-  name = new FormControl('', [
+  fname = new FormControl('', [
+    Validators.required,
+  ])
+  lname = new FormControl('', [
+    Validators.required,
+  ])
+  email = new FormControl('', [
+    Validators.required,
+  ])
+  mobileNo = new FormControl( [
     Validators.required,
   ])
   company = new FormControl('', [
@@ -26,6 +35,9 @@ export class BasicFormComponent implements OnInit {
     Validators.required,
   ])
   department = new  FormControl('', [
+    Validators.required,
+  ])
+  address = new  FormControl('', [
     Validators.required,
   ])
   contactFields = new  FormControl('', [
@@ -43,10 +55,14 @@ export class BasicFormComponent implements OnInit {
     ) {
       auth.user.subscribe(user => this.user = user)
     this.typeValidationForm = this.formBuilder.group({
-      name: this.name,
+      fname: this.fname,
+      lname: this.lname,
+      email: this.email,
+      mobileNo: this.mobileNo,
       company: this.company,
       position: this.position,
       department: this.department,
+      address: this.address,
       contacts: this.formBuilder.array([]),
     });
     this.FormData.push(this.typeValidationForm.controls)
@@ -98,10 +114,14 @@ get f() {
         });
       }
       this.typeValidationForm.patchValue({
-        name: getForm.name,
+        fname: getForm.fname,
+        lname: getForm.lname,
+        email: getForm.email,
+        mobileNo: getForm.mobileNo,
         company: getForm.company,
         position: getForm.position,
         department: getForm.department,
+        address: getForm.address,
         contacts: contactData !=null?contactData:[]
       })
     })
