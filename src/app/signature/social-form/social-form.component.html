@@ -4,7 +4,81 @@
       <div class="card overflow-hidden" style="width: 29.7rem;">
         <div class="card-body pt-0">
           <div class="p-2">
+
             <form [formGroup]="typeValidationForm" >
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/facebook.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="facebookLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+              <!-- twitterLink Field-->
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/twitter.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="twitterLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+              <!-- youtubeLink Field -->
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/youtube.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="youtubeLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+              <!-- instagramLink Field -->
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/instagram.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="instagramLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+              <!-- linkedinLink Field -->
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/linkedin.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="linkedinLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+              <!-- pinterestLink Field -->
+              <div class="mb-3 row col-md-12">
+                <div class="wrapper col-md-2">
+                  <div class="social-icons icon-circle icon-zoom list-unstyled list-inline"> 
+                    <img src="../../../assets/images/pinterest.png"  alt="">
+                  </div>
+                </div>
+                  <div class="col-md-8 mt-4">
+                    <input type="text" formControlName="pinterestLink" class="form-control"
+                        placeholder="Social Media Link"  >
+                  </div>
+              </div>
+            </form>
+            <!-- <form [formGroup]="typeValidationForm" >
                     
                         <div formArrayName="socialMedia" >
                         <div *ngFor="let data1 of socialMedia.controls; let i=index;">
@@ -27,13 +101,13 @@
                         </div>
                         </div>
                       </div>
-            </form>
+            </form> -->
 
-            <div class="wrapper">
+            <!-- <div class="wrapper">
               <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline" *ngFor="let info of iconDetails"> 
                   <li style="float: left;" (click)="addField(info)"><i class="{{info.icon}}"></i></li> 
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

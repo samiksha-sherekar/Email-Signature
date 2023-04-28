@@ -25,7 +25,7 @@ export class BasicFormComponent implements OnInit {
   email = new FormControl('', [
     Validators.required,
   ])
-  mobileNo = new FormControl( [
+  mobileNo = new FormControl('', [
     Validators.required,
   ])
   company = new FormControl('', [

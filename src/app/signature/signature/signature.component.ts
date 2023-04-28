@@ -80,7 +80,13 @@ async onSubmit(){
         profileImage : this.imageData[0].profileImage.value
       },
       socialMedia : {
-        socialMediaDetails : this.socialMediaData[0].socialMedia.value,
+        // socialMediaDetails : this.socialMediaData[0].value,
+        facebookLink:this.socialMediaData[0].facebookLink.value,
+        twitterLink: this.socialMediaData[0].twitterLink.value,
+        youtubeLink:this.socialMediaData[0].youtubeLink.value,
+        instagramLink: this.socialMediaData[0].instagramLink.value,
+        linkedinLink:this.socialMediaData[0].linkedinLink.value,
+        pinterestLink: this.socialMediaData[0].pinterestLink.value,
       },
       designForm : {
         fontFamily:this.designData[0].fontFamily.value,

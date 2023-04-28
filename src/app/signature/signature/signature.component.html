@@ -29,8 +29,68 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="icon" *ngFor="let data of socialMediaData[0].socialMedia.value">
+                        <!-- <div class="icon" *ngFor="let data of socialMediaData[0].socialMedia.value">
                             <span class="social-icons icon-circle icon-zoom"><i class="{{data.icon}}"></i></span>
+                        </div> -->
+                        <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].facebookLink.value}} " target="_blank">
+                                        <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-2019-circle-512.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Twitter -->
+                        <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].twitterLink.value}} " target="_blank">
+                                        <img src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Youtube -->
+                        <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].youtubeLink.value}} " target="_blank">
+                                        <img src="https://www.freepnglogos.com/uploads/youtube-logo-icon-transparent---32.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- instagram -->
+                        <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].instagramLink.value}} " target="_blank">
+                                        <img src="https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-instagram-new-logo-vector-download-13.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Linkedin -->
+                         <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].linkedinLink.value}} " target="_blank">
+                                        <img src="https://www.freepnglogos.com/uploads/linkedin-basic-round-social-logo-png-13.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- pinterest -->
+                        <div [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width: 30px; height: 30px;"> 
+                                    <a href="{{socialMediaData[0].pinterestLink.value}} " target="_blank">
+                                        <img src="https://www.freepnglogos.com/uploads/pinterest-logo-p-png-0.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

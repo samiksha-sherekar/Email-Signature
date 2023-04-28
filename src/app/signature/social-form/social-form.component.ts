@@ -16,16 +16,27 @@ export class SocialFormComponent implements OnInit {
 
   FormData:any[]=[]
   socialMediaData:SocialMedia[]=[];
-  iconDetails:any[]=[]
-  iconPlaceHolder!:string
-  icon = new  FormControl('', [
+
+  // Form Controls
+  facebookLink = new  FormControl('', [
     Validators.required,
   ])
-  link = new  FormControl('', [
+  twitterLink = new  FormControl('', [
+    Validators.required,
+  ])
+  youtubeLink = new  FormControl('', [
+    Validators.required,
+  ])
+  instagramLink = new  FormControl('', [
+    Validators.required,
+  ])
+  linkedinLink = new  FormControl('', [
+    Validators.required,
+  ])
+  pinterestLink = new  FormControl('', [
     Validators.required,
   ])
   typeValidationForm!: FormGroup;
-  
   constructor(
     public formBuilder: FormBuilder,
     public sharedService:SignService,private httpClient: HttpClient,
@@ -33,36 +44,28 @@ export class SocialFormComponent implements OnInit {
     ) {
       auth.user.subscribe(user => this.user = user)
     this.typeValidationForm = this.formBuilder.group({
-      socialMedia: this.formBuilder.array([this.field()]),
+      facebookLink: this.facebookLink,
+      twitterLink: this.twitterLink,
+      youtubeLink: this.youtubeLink,
+      instagramLink: this.instagramLink,
+      linkedinLink: this.linkedinLink,
+      pinterestLink: this.pinterestLink,
     });
     this.FormData.push(this.typeValidationForm.controls)
-    // console.log(this.typeValidationForm.get('socialMedia') as FormArray
-    //   )
-
     this.sharedService.socialMediaData$
     .subscribe(socialMediaData => {
       this.socialMediaData = socialMediaData
     });
 }
 
-field(): FormGroup {
-  return this.formBuilder.group({
-    icon:"fa fa-linkedin",
-    link:""
-  });
-}
-get socialMedia(): FormArray {
-  return this.typeValidationForm.get('socialMedia') as FormArray;
+get f() {
+  return this.typeValidationForm.controls;
 }
   ngOnInit(){
     this.sharedService.setSocialMediaData(this.FormData);
-    this.httpClient.get("/assets/iconsInfo.json").subscribe((iconData:any) => {
-        this.iconDetails=iconData
-  })
   this.getSocialForm()
 }
 getBFData:any[]=[]
-a:any; b:any
 getSocialForm(){
   var a=this.sharedService.getSignatureData()
   // console.log(a)
@@ -75,37 +78,17 @@ getSocialForm(){
         ...(element.payload.doc.data() as Record<string, unknown>)
       })
     })
-    // console.log(this.getBFData[0].socialMedia)
-    var getForm:any=this.getBFData[0].socialMedia.socialMediaDetails
-    // let getForm=this.getBFData[0].socialMedia;
-    if (getForm) {
-      getForm.forEach((element:any, i:any) => {
-        getForm[i].icon=element.icon;
-        getForm[i].link=element.link;
-        this.field();
-      });
-    }
+    var getForm:any=this.getBFData[0].socialMedia
+    
     this.typeValidationForm.patchValue({
-      socialMedia: getForm,
+      facebookLink: getForm.facebookLink,
+      twitterLink: getForm.twitterLink,
+      youtubeLink: getForm.youtubeLink,
+      instagramLink: getForm.instagramLink,
+      linkedinLink: getForm.linkedinLink,
+      pinterestLink: getForm.pinterestLink,
     })
-    let testformArray = this.typeValidationForm.get('socialMedia') as FormArray;
-
-testformArray.patchValue(getForm);
   })
 
 }
-  // Dynamic form
-  addField(e:any) {
-    let fg = this.field();
-    fg.patchValue({
-      icon:e.icon,
-    })
-		this.socialMedia.push(fg);
-  }
-  
-  removeField(i: number) {
-    if (confirm('Are you sure you want to delete this element?')) {
-      this.socialMedia.removeAt(i);
-    }
-  }
 }

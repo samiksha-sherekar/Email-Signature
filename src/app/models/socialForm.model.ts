@@ -1,6 +1,11 @@
 export interface SocialMedia{
-    
-    socialMediaDetails:Social
+    facebookLink? : string;
+    twitterLink? : string;
+    youtubeLink? : string;
+    instagramLink : string;
+    linkedinLink? : string;
+    pinterestLink? : string
+    // socialMediaDetails:Social
 }
 
 export interface Social{
