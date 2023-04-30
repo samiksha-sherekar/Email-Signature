@@ -20,13 +20,12 @@ export class ImageFormComponent implements OnInit {
   imageType=true; logo: any;
   sizeError=false;
   imageChangedEvent: any = '';
-  croppedImage: any = ''; image!: string;
+  image!: string;
   filename!: string;
-    parents: any=[];
     file_label:string="Choose File";
     img!: string | ArrayBuffer;
-
-    profileImage = new  FormControl('', [
+    dummyImage="../../../assets/images/facebook.png"
+    profileImage = new  FormControl('../../../assets/images/profile.jpg', [
       Validators.required,
     ])
   constructor(
@@ -70,7 +69,6 @@ export class ImageFormComponent implements OnInit {
       this.sizeError=false
     }
     this.logo=event.addedFiles[0];
-    console.log(this.logo)
     if ( event.addedFiles[0]) {
       var reader = new FileReader();
       reader.onload = (e: any) => {
@@ -100,6 +98,7 @@ export class ImageFormComponent implements OnInit {
       })
       var getForm:any=this.getImageData[0].imageForm
       // this.logo = getForm.profileImage
+      // console.log(this.logo)
       this.typeValidationForm.patchValue({
         profileImage: getForm.profileImage,
       })

@@ -16,16 +16,16 @@ export class DesignComponent implements OnInit {
   user: firebase.User | null = null
   getDesignData:any[]=[]
 
-  fontFamily = new FormControl('inter', [
+  fontFamily = new FormControl('arial', [
     Validators.required,
   ])
   fontSize = new FormControl(16, [
     Validators.required,
   ])
-  templateColor = new FormControl ('#ffffff', [
+  templateColor = new FormControl ('#4A4F50', [
     Validators.required,
   ])
-  backgroundColor = new  FormControl('#283046', [
+  backgroundColor = new  FormControl('#FFFFFF', [
     Validators.required,
   ])
   constructor(

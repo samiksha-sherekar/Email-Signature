@@ -3,7 +3,7 @@
         <div class="card-header">
             Email Signature
         </div>
-        <div class="card-body pt-0"  #elementContentToCopy id="foo">
+        <div class="card-body pt-0"  #elementContentToCopy id="email">
             <div class="p-2" [style.background]="designData[0].backgroundColor.value">
                 <div class="main">
                     <div style="width: 100%;display: flex;" >
@@ -14,13 +14,22 @@
                             <span  *ngFor="let data of sharedData" [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
                                 <label style=" font-weight: bold;"> {{data.fname.value}}</label> &nbsp;
                                 <label style=" font-weight: bold;">{{data.lname.value}}</label><br>
-                                <label>{{data.position.value}}</label> &nbsp; <span style=" font-weight: bold;">|</span> &nbsp;
+                                <label>{{data.position.value}}</label> &nbsp; 
+                                <span *ngIf="data.department.value.length>0" style=" font-weight: bold;">|</span> &nbsp;
                                 <label>{{data.department.value}}</label><br>
-                                <label><span style=" font-weight: bold;">M</span> : {{data.mobileNo.value}}</label><br>
-                                <label><span style=" font-weight: bold;">C</span> : {{data.company.value}}</label><br>
+                                <span *ngIf="data.mobileNo.value.length>0">
+                                    <label><span style=" font-weight: bold;">M</span> : {{data.mobileNo.value}}</label><br>
+                                </span>
+                                <span *ngIf="data.company.value.length>0">
+                                    <label><span style=" font-weight: bold;">C</span> : {{data.company.value}}</label><br>
+                                </span>
                                 <!-- <hr> -->
-                                <label><span style=" font-weight: bold;">E</span> : {{data.email.value}}</label><br>
-                                <label><span style=" font-weight: bold;">A</span> : {{data.address.value}}</label>
+                                <span *ngIf="data.email.value.length>0">
+                                    <label><span style=" font-weight: bold;">E</span> : {{data.email.value}}</label><br>
+                                </span>
+                                <span *ngIf="data.address.value.length>0">
+                                    <label><span style=" font-weight: bold;">A</span> : {{data.address.value}}</label>
+                                </span>
                             </span>
                         </div>
                     </div>

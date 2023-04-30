@@ -17,6 +17,7 @@ export class SignatureComponent implements OnInit {
   socialMediaData:any[]=[]
   designData:any[]=[]
   user: firebase.User | null = null
+  dummyImage:any
   constructor(
       public sharedService:SignService,
       private auth: AngularFireAuth,
@@ -43,6 +44,8 @@ getImageData(){
   this.sharedService.imageData$
       .subscribe(imageData => {
         this.imageData=imageData
+        // this.dummyImage=this.imageData[0].profileImage.value=='../../../assets/images/facebook.png'
+        console.log(this.imageData)
       });
 }
 // Social Media Get
@@ -80,7 +83,6 @@ async onSubmit(){
         profileImage : this.imageData[0].profileImage.value
       },
       socialMedia : {
-        // socialMediaDetails : this.socialMediaData[0].value,
         facebookLink:this.socialMediaData[0].facebookLink.value,
         twitterLink: this.socialMediaData[0].twitterLink.value,
         youtubeLink:this.socialMediaData[0].youtubeLink.value,
@@ -95,7 +97,6 @@ async onSubmit(){
         backgroundColor:this.designData[0].backgroundColor.value,
       }
     }
-      // console.log("hi",this.data.basicForm.contacts)
       try {
         await this.sharedService.createSign(this.data)
       } catch(e) {
@@ -108,34 +109,18 @@ async onSubmit(){
 
 }
 
- copyToClip() {
-   let str:any
-   str= document.getElementById('foo')
-   str= str.innerHTML
-  //  console.log(str)
-  function listener(e: any) {
-    e.clipboardData.setData("text/html", str);
-    e.clipboardData.setData("text/plain", str);
-    e.preventDefault();
-  }
-  document.addEventListener("copy", listener);
-  document.execCommand("copy");
-  document.removeEventListener("copy", listener);
+copyToClip() {
+    let str:any
+    str= document.getElementById('email')
+    str= str.innerHTML
+    function listener(e: any) {
+      e.clipboardData.setData("text/html", str);
+      e.clipboardData.setData("text/plain", str);
+      e.preventDefault();
+    }
+    document.addEventListener("copy", listener);
+    document.execCommand("copy");
+    document.removeEventListener("copy", listener);
 };
 
-async copy($event:MouseEvent, elementContentToCopy:any){
-  console.log(elementContentToCopy)
-  $event.preventDefault()
-  if(!elementContentToCopy){
-    return
-  }
-  let image = await fetch('/laptop.png'),
-  blob = await image.blob();
-  await navigator.clipboard.write([
-    new ClipboardItem({ [blob.type]: blob })
-  ]);
-  
-  // await navigator.clipboard.write(elementContentToCopy.style.backgroundColor)
-  // alert("copy")
-}
 }

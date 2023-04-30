@@ -13,6 +13,10 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
+    path: '',
+    component: HomeComponent
+  },
+  {
     path: 'email-signature',
     component: HomeComponent,
     data: {

@@ -16,28 +16,28 @@ export class BasicFormComponent implements OnInit {
   FormData:any[]=[]
   basicData:BasicForm[]=[];
   user: firebase.User | null = null
-  fname = new FormControl('', [
+  fname = new FormControl('Sam', [
     Validators.required,
   ])
-  lname = new FormControl('', [
+  lname = new FormControl('Smith', [
     Validators.required,
   ])
-  email = new FormControl('', [
+  email = new FormControl('sam@gmail.com', [
     Validators.required,
   ])
-  mobileNo = new FormControl('', [
+  mobileNo = new FormControl('8888888888', [
     Validators.required,
   ])
-  company = new FormControl('', [
+  company = new FormControl('My Company', [
     Validators.required,
   ])
-  position = new FormControl ('', [
+  position = new FormControl ('Software Developer', [
     Validators.required,
   ])
-  department = new  FormControl('', [
+  department = new  FormControl('IT', [
     Validators.required,
   ])
-  address = new  FormControl('', [
+  address = new  FormControl('Street, City, Pin', [
     Validators.required,
   ])
   contactFields = new  FormControl('', [
