@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="card shadow p-3 mb-5 bg-white rounded">
+        <div class="card-header">
+            <h4 class="header-text">Signature Preview</h4>
+        </div>
+        <div class="card-body pt-0"  #elementContentToCopy id="email">
+            <div class="p-2" [style.background]="designData[0].backgroundColor.value">
+                <div class="main">
+                    <div style="width: 100%;display: flex;" >
+                        <div style="width: 30%;">
+                            <img [src]="imageData[0].profileImage.value" alt="" style="width :70%;margin-top: 20px;margin-left: 20px;">
+                        </div>
+                        <div style="width: 60%;">
+                            <span  *ngFor="let data of sharedData" [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                                <label style=" font-weight: bold;"> {{data.fname.value}}</label> &nbsp;
+                                <label style=" font-weight: bold;">{{data.lname.value}}</label><br>
+                                <label>{{data.position.value}}</label> &nbsp; 
+                                <span *ngIf="data.department.value.length>0" style=" font-weight: bold;">|</span> &nbsp;
+                                <label>{{data.department.value}}</label><br>
+                                <span *ngIf="data.mobileNo.value.length>0">
+                                    <label><span style=" font-weight: bold;">M</span> : {{data.mobileNo.value}}</label><br>
+                                </span>
+                                <span *ngIf="data.company.value.length>0">
+                                    <label><span style=" font-weight: bold;">C</span> : {{data.company.value}}</label><br>
+                                </span>
+                                <!-- <hr> -->
+                                <span *ngIf="data.email.value.length>0">
+                                    <label><span style=" font-weight: bold;">E</span> : {{data.email.value}}</label><br>
+                                </span>
+                                <span *ngIf="data.address.value.length>0">
+                                    <label><span style=" font-weight: bold;">A</span> : {{data.address.value}}</label>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="col-md-12" style="display : flex; margin-top: 10px;margin-left: 20px;"  [style.font-family]="designData[0].fontFamily.value" [style.font-size.px]="designData[0].fontSize.value" [style.color]="designData[0].templateColor.value">
+                        <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 20px; height: 20px"> 
+                                    <a href="{{socialMediaData[0].facebookLink.value}} " target="_blank">
+                                        <img style="width : 20px; height: 20px" src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-2019-circle-512.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Twitter -->
+                        <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 20px; height: 20px"> 
+                                    <a href="{{socialMediaData[0].twitterLink.value}} " target="_blank">
+                                        <img style="width : 20px; height: 20px" src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Youtube -->
+                        <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 27px; height: 22px"> 
+                                    <a href="{{socialMediaData[0].youtubeLink.value}} " target="_blank">
+                                        <img style="width : 27px; height: 22px" src="https://www.freepnglogos.com/uploads/youtube-logo-icon-transparent---32.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- instagram -->
+                        <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 20px; height: 20px"> 
+                                    <a href="{{socialMediaData[0].instagramLink.value}} " target="_blank">
+                                        <img style="width : 20px; height: 20px" src="https://www.freepnglogos.com/uploads/logo-ig-png/logo-ig-instagram-new-logo-vector-download-13.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Linkedin -->
+                         <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 20px; height: 20px"> 
+                                    <a href="{{socialMediaData[0].linkedinLink.value}} " target="_blank">
+                                        <img style="width : 20px; height: 20px" src="https://www.freepnglogos.com/uploads/linkedin-basic-round-social-logo-png-13.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- pinterest -->
+                        <div>
+                            <div class="wrapper col-md-2">
+                                <div class="social-icons icon-circle icon-zoom list-unstyled list-inline" style="width : 20px; height: 20px"> 
+                                    <a href="{{socialMediaData[0].pinterestLink.value}} " target="_blank">
+                                        <img style="width : 20px; height: 20px" src="https://www.freepnglogos.com/uploads/pinterest-logo-p-png-0.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div [innerHTML]="sanitizedContent"></div> -->
+                    </div>
+            </div>
+        </div>
+        <div class="row m-2">
+            <div class="col-md-12">
+                <div class="">
+                    <div *ngIf="sanitizedContent" [innerHTML]="sanitizedContent"></div>
+                    <button (click)="copyToClip()" class="btn btn-primary ">
+                        Copy Signature
+                    </button>
+                    <button type="submit"
+                        class="btn btn-primary float-end " (click)="onSubmit()">
+                        Save Signature
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

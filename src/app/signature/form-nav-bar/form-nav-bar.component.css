@@ -1,0 +1,32 @@
+.main{
+    background-color: aliceblue;
+}
+.color{
+    color:#DD2022
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 140px;
+    height: 100%;
+    background-color: #F7F7F7;
+    /* background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%); */
+  }
+  li a {
+    height: 130px;
+    display: block;
+    color: #0c0909;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  /* Change the link color on hover */
+  li a:hover {
+    background-color: #DD2022;
+    /* background-image: linear-gradient( 96.5deg,  rgba(39,103,187,1) 10.4%, rgba(16,72,144,1) 87.7% ); */
+    color: #fff;
+  }
+  .icon {
+    margin-right: 10px;
+  }

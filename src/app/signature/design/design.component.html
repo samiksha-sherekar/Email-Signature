@@ -1,0 +1,68 @@
+
+<!-- Design Form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-12">
+            <div class="card overflow-hidden shadow p-3 mb-5 bg-white rounded" style="width: 29.7rem;">
+                <div class="card-body pt-0">
+                    <div class="p-2">
+                        <div class="col-md-12">
+                            <p><b>Layout</b></p>
+                        </div>
+                        <form [formGroup]="typeValidationForm" >
+                            <!-- Font family -->
+                            <div class="mb-3 row col-md-12">
+                                <div class="col-md-4">
+                                    <label class="">Font family</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <select id="fonFomily" formControlName="fontFamily" class="form-control">
+                                        <option class="bg-slate-700" value="arial" selected>Arial (sans-serif)</option>
+                                        <option class="bg-slate-700 " value="inter">Inter, sans-serif</option>
+                                        <option class="bg-slate-700" value="verdana">Verdana (sans-serif)</option>
+                                        <option class="bg-slate-700" value="tahoma">Tahoma (sans-serif)</option>
+                                        <option class="bg-slate-700" value="trebuchet">Trebuchet MS (sans-serif)</option>
+                                        <option class="bg-slate-700" value="timeNewRoman">Times New Roman (serif)</option>
+                                        <option class="bg-slate-700" value="georgia">Georgia (serif)</option>
+                                        <option class="bg-slate-700" value="garamond">Garamond (serif)</option>
+                                        <option class="bg-slate-700" value="courierNew">Courier New (monospace)</option>
+                                        <option class="bg-slate-700" value="brushScriptMt">Brush Script MT (cursive)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Font size -->
+                            <div class="mb-3 row col-md-12">
+                                <div class="col-md-4">
+                                    <label class="">Font size</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="range" min="10" max="30" formControlName="fontSize" class="form-range">
+                                </div>
+                            </div>
+
+                            <!-- Template color -->
+                            <div class="mb-3 row col-md-12">
+                                <div class="col-md-4">
+                                    <label class="inline-block mb-2 col-span-1">Template color</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input  type="color" class="" value='#fefefe' formControlName="templateColor">
+                                </div>
+                            </div>
+                            <!-- Background color -->
+                            <div class="mb-3 row col-md-12">
+                                <div class="col-md-4">
+                                    <label class="inline-block mb-2 col-span-1">Background color</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <input type="color"  formControlName="backgroundColor" >
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
