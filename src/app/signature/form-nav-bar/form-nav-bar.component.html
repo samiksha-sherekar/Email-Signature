@@ -1,87 +1,17 @@
-<!-- <div class="">
-    <ul ngbNav #justifiednav="ngbNav" [activeId]="'General'" class="nav-pills nav-justified">
-        <li [ngbNavItem]="'General'">
-          <a ngbNavLink>
-            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-            <span class="d-none d-sm-block">General</span>
-          </a>
-          <ng-template ngbNavContent>
-              <br>
-              <div class="row">
-                <div class="col-md-12">
-                    <app-basic-form></app-basic-form>
-                </div>
-              </div>
-            </ng-template>
-        </li>
-        <li [ngbNavItem]="'Image'">
-          <a ngbNavLink>
-            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-            <span class="d-none d-sm-block">Image</span>
-          </a>
-          <ng-template ngbNavContent>
-            <br>
-            <div class="row">
-              <div class="col-md-12">
-                <app-image-form ></app-image-form>
-              </div>
-             
-            </div>
-          </ng-template>
-        </li>
 
-        <li [ngbNavItem]="'Social'">
-          <a ngbNavLink>
-            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-            <span class="d-none d-sm-block">Social</span>
-          </a>
-          <ng-template ngbNavContent>
-            <br>
-            <div class="row">
-              <div class="col-md-12">
-                <app-social-form ></app-social-form>
-              </div>
-            
-            </div>
-          </ng-template>
-        </li>
-        <li [ngbNavItem]="'Design'">
-          <a ngbNavLink>
-            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-            <span class="d-none d-sm-block">Design</span>
-          </a>
-          <ng-template ngbNavContent>
-            <br>
-            <div class="row">
-              <div class="col-md-12">
-                <app-design></app-design>
-              </div>
-             
-            </div>
-          </ng-template>
-        </li>
-        
-      </ul>
-      <div [ngbNavOutlet]="justifiednav"></div>
-</div>
- -->
-<div class="d-flex  flex-row">
+<div class="row">
+  <div class=" col-2 col-lg-2">
   
-  <div class="tab bg-primary height-250vh">
-    <!-- <ul>
-      <li [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</li>
-      <li [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</li>
-      <li [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</li>
-      <li [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</li>
-    </ul> -->
-    <ul>
-      <li><a class="active" [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</a></li>
-      <li><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li>
-      <li><a [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</a></li>
-      <li><a [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</a></li>
-    </ul>
+    <div class="tab">
+      <ul>
+        <li class="text-center"><a class="active" [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</a></li>
+        <li class="text-center"><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li>
+        <li class="text-center"><a [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</a></li>
+        <li class="text-center"><a [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="content">
+  <div class="col-10 col-lg-10">
     <div [hidden]="tabValue !== 'general'">
         <app-basic-form></app-basic-form>
     </div>

@@ -40,16 +40,10 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
   }
 
   async createSign(data: ISignature)  {
-    console.log(data)
-    // // const userCred = await this.auth.createUserWithEmailAndPassword(userData.email, userData.password)
-    // if(!userCred.user){
-    //   throw new Error("User can't be found")
-    // }
     return this.signCollection.doc(this.user?.uid as string,).set(data)
   }
 
   setData(updatedData:any) {
-    console.log(updatedData)
     this.basicData.next(updatedData);
   }
   setImageData(updatedData:any) {
@@ -61,36 +55,8 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
   setDesignData(updatedData:any) {
     this.designData.next(updatedData);
   }
-  features:any[]=[]
-  usersCollection:any
+
   getSignatureData() { 
-    // return this.db.doc('signature/this.user?.uid').snapshotChanges()
     return this.db.collection('signature').snapshotChanges()
-    // .pipe(
-    //   map(changes => changes.map(({ payload: { doc } }) => {
-    //     const data = doc.data();
-    //     const id = doc.id
-    //     return { id, ...data as Record<string, unknown> };
-    //   })),)
-    // this.usersCollection = this.db.collection('signature', ref => ref.where('uid', '==', this.user?.uid))
-    // console.log(this.usersCollection)
-    //  this.db.collection('signature')
-    // .doc('this.user?.uid')
-    // .snapshotChanges()
-    // .subscribe((res: any) => {
-    //   this.features = []
-    //   var a:any[]=[]
-    //   a.push(res)
-    //   res.forEach((element:any, x:any) => {
-    //     console.log(element.payload.doc.data().uid,element.payload.doc.uid,this.user?.uid,x,element.payload.doc.uid==this.user?.uid)
-    //     if(element.payload.doc.data().uid==this.user?.uid)
-    //     this.features.push({
-    //       uid: element.payload.doc.uid,
-    //       ...(element.payload.doc.data() as Record<string, unknown>)
-    //     })
-    //   })
-    //   return this.features
-      // console.log(this.features)
-    // })
   }
 }

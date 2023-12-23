@@ -5,17 +5,17 @@
           <div class="card overflow-hidden">
             <div class="bg-soft bg-primary">
               <div class="row">
-                <div class="col-7">
-                  <div class="text-primary p-4">
-                    <h5 class="text-primary">Create Account</h5>
+                <div class="col-12 text-center login-header">
+                  <div class="p-5">
+                    <h5 class="">Create Account</h5>
                   </div>
                 </div>
-                <div class="col-5 align-self-end">
-                  <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                </div>
+                <!-- <div class="col-5 align-self-end">
+                  <img src="assets/images/img-6.jpg" alt="" class="img-fluid">
+                </div> -->
               </div>
             </div>
-            <div class="card-body pt-0">
+            <div class="card-body pt-3">
               <div>
                 <!-- <a routerLink="/">
                   <div class="avatar-md profile-user-wid mb-4">
@@ -73,7 +73,7 @@
                 <div class="mb-3">
                     <label class="inline-block mb-2">Confirm Password</label>
                     <input type="text" formControlName="confirm_password" class="form-control"
-                      [ngClass]="{ 'is-invalid': inSubmission && f.confirm_password.errors }" id="confirm_password" placeholder="Enter confirm_password" />
+                      [ngClass]="{ 'is-invalid': inSubmission && f.confirm_password.errors }" id="confirm_password" placeholder="Enter confirm password" />
                     <div *ngIf="inSubmission && f.confirm_password.errors" class="invalid-feedback">
                       <div *ngIf="f.confirm_password.errors.required">Confirm Password is required</div>
                     </div>
@@ -89,8 +89,8 @@
                 </div>
                 
   
-                  <div class="mt-4 d-grid">
-                    <button class="btn btn-primary" type="submit">Register</button>
+                  <div class="mt-4 text-center">
+                    <button class="btn btn-block" type="submit">Register</button>
                   </div>
                 </form>
               </div>
@@ -99,7 +99,7 @@
           <!-- end card -->
   
           <div class="mt-5 text-center">
-            <p>Already have an account ? Login<a routerLink="/account/login" class="fw-medium text-primary"> Login</a>
+            <p>Already have an account ?<a routerLink="/account/login" class="fw-medium"> Login</a>
             </p>
             <p>© {{year}} Email Signature</p>
           </div>

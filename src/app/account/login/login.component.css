@@ -1,0 +1,14 @@
+.card {
+    border: none;
+    background-color: #F5EBEB;
+    border-radius: 24px;
+}
+.login-header{
+    background-color : #E4D0D0
+}
+button {
+    background-color: #D5B4B4;
+}
+a{
+    color : #867070;
+}

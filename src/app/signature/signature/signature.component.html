@@ -1,9 +1,9 @@
 <div class="container">
-    <div class="card shadow p-3 mb-5 bg-white rounded">
+    <div class="card shadow  mb-5 rounded">
         <div class="card-header">
-            <h4 class="header-text">Signature Preview</h4>
+            <h5 class="header-text">Signature Preview</h5>
         </div>
-        <div class="card-body pt-0"  #elementContentToCopy id="email">
+        <div class="card-body m-3 p-3"  #elementContentToCopy id="email">
             <div class="p-2" [style.background]="designData[0].backgroundColor.value">
                 <div class="main">
                     <div style="width: 100%;display: flex;" >
@@ -102,17 +102,17 @@
         </div>
         <div class="row m-2">
             <div class="col-md-12">
-                <div class="">
-                    <div *ngIf="sanitizedContent" [innerHTML]="sanitizedContent"></div>
-                    <button (click)="copyToClip()" class="btn btn-primary ">
+                    <button (click)="copyToClip()" class="btn ">
                         Copy Signature
                     </button>
                     <button type="submit"
-                        class="btn btn-primary float-end " (click)="onSubmit()">
+                        class="btn float-end " (click)="onSubmit()">
                         Save Signature
                     </button>
-                </div>
             </div>
+        </div>
+        <div *ngIf="showSuccess" class="alert alert-{{alertColor}}" role="alert" style="position: fixed; bottom: 40px; right: 40px;">
+            {{ showSuccessMessage }}
         </div>
     </div>
 </div>

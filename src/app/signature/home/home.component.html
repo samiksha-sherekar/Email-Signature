@@ -1,32 +1,22 @@
 
 <!-- Nav Bar -->
 <div class="main pt-4 pb-3">
-  <div class="container-fluid">
-    <!-- <div class="container"> -->
-      <div class="row mt-4">
-        <div class="col-md-6">
+  <div class="container">
+      <div class="row m-3">
+        <div class="col-md-10 text-center">
             <h4>Email Signature</h4>
         </div>
-        <div class="col-md-6 text-end">
-            <a  class="btn btn-danger" (click)="logout($event)">Log Out</a>
+        <div class="col-md-2 text-end">
+            <button  class="btn" (click)="logout($event)">Log Out</button>
         </div>
       </div>
-    <!-- </div> -->
-  
-  
-  
-  <!-- <div class="container"> -->
-  
-      <div class="col-md-12 d-flex">
-          <!-- <span class="row"> -->
-              <div class="col-md-6 mt-4">
-                  <app-form-nav-bar></app-form-nav-bar>
-              </div>
-              <div class="col-md-6 mt-4">
-                  <app-signature></app-signature>
-              </div>
-            <!-- </span> -->
-      </div>
-  <!-- </div> -->
+    <div class="row">
+        <div class="col-12 col-lg-6 mt-4">
+          <app-form-nav-bar></app-form-nav-bar>
+        </div>
+        <div class="col-12 col-lg-6 mt-4">
+          <app-signature></app-signature>
+        </div>
+    </div>
   </div>
 </div>

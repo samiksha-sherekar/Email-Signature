@@ -1,11 +1,14 @@
-/* .main{
-    max-height: 100%;
-    background-color: #FFDEE9;
-background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
-background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-background-image: linear-gradient( 270.3deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 100% );
-background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+.card {
+    border: none;
+    background-color: #F5EBEB;
+    border-radius: 24px;
 }
-.form{
-    border-right: cornflowerblue 1px solid;
-} */
+.main{
+    background-color : #E4D0D0
+}
+button {
+    background-color: #D5B4B4;
+}
+a{
+    color : #867070;
+}

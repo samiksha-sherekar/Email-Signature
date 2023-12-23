@@ -18,7 +18,10 @@ export class SignatureComponent implements OnInit {
   socialMediaData:any[]=[]
   designData:any[]=[]
   user: firebase.User | null = null
-  dummyImage:any
+  
+  showSuccess = false
+  showSuccessMessage = ''
+  alertColor = 'primary'
   constructor(
       public sharedService:SignService,
       private auth: AngularFireAuth,
@@ -36,8 +39,9 @@ export class SignatureComponent implements OnInit {
   // Basic Form
 getBasicData(){
   this.sharedService.basicData$
-      .subscribe(basicData => {
+      .subscribe((basicData:any) => {
         this.sharedData=basicData
+        console.log(basicData)
       });
 }
 // Image Data Get
@@ -46,7 +50,6 @@ getImageData(){
       .subscribe(imageData => {
         this.imageData=imageData
         // this.dummyImage=this.imageData[0].profileImage.value=='../../../assets/images/facebook.png'
-        console.log(this.imageData)
       });
 }
 // Social Media Get
@@ -54,7 +57,6 @@ getSocialMediaData(){
   this.sharedService.socialMediaData$
       .subscribe(socialMediaData => {
         this.socialMediaData = socialMediaData
-        console.log(this.socialMediaData)
       });
 }
 // Design Data Get
@@ -100,8 +102,12 @@ async onSubmit(){
     }
       try {
         await this.sharedService.createSign(this.data)
+        this.showSuccess = true
+        this.showSuccessMessage = "Success! New signature has been saved."
+        this.alertColor = "success"
       } catch(e) {
-      console.error(e)
+        this.showSuccessMessage = "An unexpected error occurred. Please try again later";
+        this.alertColor = 'danger ';
       }
   }else
   {
@@ -109,23 +115,21 @@ async onSubmit(){
   }
 
 }
-sanitizedContent:any
 copyToClip() {
     let str:any
     str= document.getElementById('email')
     str= str.innerHTML;
-    const sanitizedContent: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(str);
     
-    console.log(sanitizedContent)
     function listener(e: any) {
       e.clipboardData.setData("text/html",  str);
       e.clipboardData.setData("text/plain" , str);
-      // e.clipboardData.setData("text/html",  sanitizedContent.toString());
-      // e.clipboardData.setData("text/plain" , sanitizedContent.toString());
       e.preventDefault();
     }
     document.addEventListener("copy", listener);
     document.execCommand("copy");
     document.removeEventListener("copy", listener);
+    this.showSuccess = true
+        this.showSuccessMessage = "Success!  Signature has been copied."
+        this.alertColor = "success"
 };
 }
