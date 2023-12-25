@@ -102,28 +102,30 @@ get f() {
           ...(element.payload.doc.data() as Record<string, unknown>)
         })
       })
-      var getForm=this.getBFData[0].basicForm
+      if(this.getBFData.length>0){
+        var getForm=this.getBFData[0].basicForm
 
-      var contactData=this.getBFData[0].basicForm.contacts
-
-      if (contactData) {
-        contactData.forEach((element:any, i:any) => {
-          // contactData[i].contactFields=element.contactFields;
-          // contactData[i].contactValue=element.contactValue;
-          this.addField();
-        });
+        this.typeValidationForm.patchValue({
+          fname: getForm.fname,
+          lname: getForm.lname,
+          email: getForm.email,
+          mobileNo: getForm.mobileNo,
+          company: getForm.company,
+          position: getForm.position,
+          department: getForm.department,
+          address: getForm.address,
+          // contacts: contactData !=null?contactData:[]
+        })
       }
-      this.typeValidationForm.patchValue({
-        fname: getForm.fname,
-        lname: getForm.lname,
-        email: getForm.email,
-        mobileNo: getForm.mobileNo,
-        company: getForm.company,
-        position: getForm.position,
-        department: getForm.department,
-        address: getForm.address,
-        contacts: contactData !=null?contactData:[]
-      })
+
+      // if (contactData) {
+      //   contactData.forEach((element:any, i:any) => {
+      //     // contactData[i].contactFields=element.contactFields;
+      //     // contactData[i].contactValue=element.contactValue;
+      //     this.addField();
+      //   });
+      // }
+     
     })
   }
   // Dynamic form

@@ -41,7 +41,6 @@ getBasicData(){
   this.sharedService.basicData$
       .subscribe((basicData:any) => {
         this.sharedData=basicData
-        console.log(basicData)
       });
 }
 // Image Data Get

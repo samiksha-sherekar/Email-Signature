@@ -64,14 +64,16 @@ get f() {
           ...(element.payload.doc.data() as Record<string, unknown>)
         })
       })
-      var getForm:any=this.getDesignData[0].designForm
+      if(this.getDesignData.length>0){
+        var getForm:any=this.getDesignData[0].designForm
 
-      this.typeValidationForm.patchValue({
-        backgroundColor: getForm.backgroundColor,
-        fontFamily: getForm.fontFamily,
-        fontSize: getForm.fontSize,
-        templateColor: getForm.templateColor,
-      })
+        this.typeValidationForm.patchValue({
+          backgroundColor: getForm.backgroundColor,
+          fontFamily: getForm.fontFamily,
+          fontSize: getForm.fontSize,
+          templateColor: getForm.templateColor,
+        })
+      }
     })
   }
 }

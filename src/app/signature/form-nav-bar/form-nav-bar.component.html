@@ -1,17 +1,14 @@
 
 <div class="row">
-  <div class=" col-2 col-lg-2">
-  
-    <div class="tab">
-      <ul>
-        <li class="text-center"><a class="active" [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</a></li>
-        <li class="text-center"><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li>
-        <li class="text-center"><a [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</a></li>
-        <li class="text-center"><a [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="col-10 col-lg-10">
+    <ul class="text-center col-12 col-lg-12">
+      <li><a class="active" [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</a></li>
+      <li><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li>
+      <li><a [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</a></li>
+      <li><a [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</a></li>
+    </ul>
+</div>
+<div class="row">
+  <div class="col-12 col-lg-12">
     <div [hidden]="tabValue !== 'general'">
         <app-basic-form></app-basic-form>
     </div>

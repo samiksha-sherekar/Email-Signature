@@ -48,7 +48,7 @@
                       [ngClass]="{ 'is-invalid': inSubmission && f.email.errors }" id="email" placeholder="Enter Email" />
                     <div *ngIf="inSubmission && f.email.errors" class="invalid-feedback">
                       <div *ngIf="f.email.errors.required">Email is required</div>
-                      <div *ngIf="f.email.errors.email">Email is invalid</div>
+                      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                     </div>
                   </div>
                         <!-- Age -->
@@ -63,21 +63,31 @@
                 <!-- Password -->
                 <div class="mb-3">
                     <label class="inline-block mb-2">Password</label>
-                    <input type="text" formControlName="password" class="form-control"
-                      [ngClass]="{ 'is-invalid': inSubmission && f.password.errors }" id="password" placeholder="Enter password" />
-                    <div *ngIf="inSubmission && f.password.errors" class="invalid-feedback">
-                      <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div class="input-group auth-pass-inputgroup">
+                      <input [type]="!showpassword?'password':'text'" formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': inSubmission && f.password.errors }" id="password" placeholder="Enter password" />
+                        <button type="button"(click)="showpassword=!showpassword" class="btn btn-light">
+                          <i class="fas fa fa-eye-slash" *ngIf="!showpassword"></i>
+                          <i class="fas fa fa-eye" *ngIf="showpassword"></i>
+                        </button>
+                    
+                      <div *ngIf="inSubmission && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <span *ngIf="f.password.errors.minlength">Password must be at least 8
+                          characters.</span>
+                          <span *ngIf="f.password.errors.pattern"> Password must contain alphabetics,numbers and special characters !</span>
+                      </div>
                     </div>
                 </div>
                 <!-- Confirm Password -->
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label class="inline-block mb-2">Confirm Password</label>
-                    <input type="text" formControlName="confirm_password" class="form-control"
+                    <input type="password" formControlName="confirm_password" class="form-control"
                       [ngClass]="{ 'is-invalid': inSubmission && f.confirm_password.errors }" id="confirm_password" placeholder="Enter confirm password" />
                     <div *ngIf="inSubmission && f.confirm_password.errors" class="invalid-feedback">
                       <div *ngIf="f.confirm_password.errors.required">Confirm Password is required</div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Phone Number -->
                 <div class="mb-3">
                     <label class="inline-block mb-2">Phone Number</label>
@@ -85,12 +95,13 @@
                       [ngClass]="{ 'is-invalid': inSubmission && f.phoneNumber.errors }" id="phoneNumber" placeholder="Enter phoneNumber" />
                     <div *ngIf="inSubmission && f.phoneNumber.errors" class="invalid-feedback">
                       <div *ngIf="f.phoneNumber.errors.required">Phone Number is required</div>
+                      <span *ngIf="f.phoneNumber.errors.pattern ||f.phoneNumber.errors.maxLength ">Phone number should be a valid one.</span>
                     </div>
                 </div>
                 
   
                   <div class="mt-4 text-center">
-                    <button class="btn btn-block" type="submit">Register</button>
+                    <button class="btn btn-block register" type="submit">Register</button>
                   </div>
                 </form>
               </div>

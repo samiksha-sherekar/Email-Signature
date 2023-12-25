@@ -91,10 +91,8 @@ export class ImageFormComponent implements OnInit {
         // Perform dimension validation here
         if (width < 200 && height < 100) {
           this.dimensionError = true;
-          console.log("True")
         } else {
           this.dimensionError = false;
-          console.log("False")
         }
       };
     
@@ -118,12 +116,14 @@ export class ImageFormComponent implements OnInit {
           ...(element.payload.doc.data() as Record<string, unknown>)
         })
       })
+      if(this.getImageData.length>0){
       var getForm:any=this.getImageData[0].imageForm
       // this.logo = getForm.profileImage
       // console.log(this.logo)
       this.typeValidationForm.patchValue({
         profileImage: getForm.profileImage,
       })
+    }
     })
   }
 }

@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  showpassword =false
+
   credentials = {
     email: '',
     password: ''
@@ -19,8 +21,9 @@ export class LoginComponent implements OnInit {
   ])
   password = new  FormControl('', [
     Validators.required,
-    Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
-  ])
+    Validators.required,Validators.minLength(8),
+    Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)])
+
   loginForm = new FormGroup({
     email: this.email,
     password: this.password,
@@ -52,7 +55,6 @@ export class LoginComponent implements OnInit {
           this.loginForm.value.email as string, this.loginForm.value.password as string
         )
       }catch(e){
-        console.log(e);
   
         this.alertMsg = "An unexpected error occurred. Please try again later";
         this.alertColor = 'danger ';

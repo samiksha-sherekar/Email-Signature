@@ -13,7 +13,6 @@ export class InputComponent implements OnInit {
   @Input() format = ''
 
   constructor() {
-    console.log(this.control,this.format)
    }
 
   ngOnInit(): void {

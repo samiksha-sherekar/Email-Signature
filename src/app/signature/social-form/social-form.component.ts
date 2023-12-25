@@ -68,7 +68,6 @@ get f() {
 getBFData:any[]=[]
 getSocialForm(){
   var a=this.sharedService.getSignatureData()
-  // console.log(a)
   this.sharedService.getSignatureData().subscribe((res: any) => {
     this.getBFData = []
     res.forEach((element:any, x:any) => {
@@ -78,16 +77,18 @@ getSocialForm(){
         ...(element.payload.doc.data() as Record<string, unknown>)
       })
     })
-    var getForm:any=this.getBFData[0].socialMedia
+    if(this.getBFData.length>0){
+      var getForm:any=this.getBFData[0].socialMedia
     
-    this.typeValidationForm.patchValue({
-      facebookLink: getForm.facebookLink,
-      twitterLink: getForm.twitterLink,
-      youtubeLink: getForm.youtubeLink,
-      instagramLink: getForm.instagramLink,
-      linkedinLink: getForm.linkedinLink,
-      pinterestLink: getForm.pinterestLink,
-    })
+      this.typeValidationForm.patchValue({
+        facebookLink: getForm.facebookLink,
+        twitterLink: getForm.twitterLink,
+        youtubeLink: getForm.youtubeLink,
+        instagramLink: getForm.instagramLink,
+        linkedinLink: getForm.linkedinLink,
+        pinterestLink: getForm.pinterestLink,
+      })
+    }
   })
 
 }
