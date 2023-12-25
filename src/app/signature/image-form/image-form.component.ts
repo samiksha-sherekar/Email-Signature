@@ -24,8 +24,8 @@ export class ImageFormComponent implements OnInit {
   filename!: string;
     file_label:string="Choose File";
     img!: string | ArrayBuffer;
-    dummyImage="../../../assets/images/facebook.png"
-    profileImage = new  FormControl('../../../assets/images/profile.jpg', [
+    dummyImage="assets/images/facebook.png"
+    profileImage = new  FormControl('assets/images/profile.jpg', [
       Validators.required,
     ])
   constructor(

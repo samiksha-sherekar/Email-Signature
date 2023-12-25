@@ -45,6 +45,7 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
 
   setData(updatedData:any) {
     this.basicData.next(updatedData);
+    console.log(this.basicData)
   }
   setImageData(updatedData:any) {
     this.imageData.next(updatedData);

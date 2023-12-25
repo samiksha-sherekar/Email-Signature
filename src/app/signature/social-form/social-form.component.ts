@@ -14,7 +14,7 @@ import firebase from 'firebase/compat/app'
 export class SocialFormComponent implements OnInit {
   user: firebase.User | null = null
 
-  FormData:any[]=[]
+  FormData:any;
   socialMediaData:SocialMedia[]=[];
 
   // Form Controls
@@ -51,7 +51,7 @@ export class SocialFormComponent implements OnInit {
       linkedinLink: this.linkedinLink,
       pinterestLink: this.pinterestLink,
     });
-    this.FormData.push(this.typeValidationForm.controls)
+    this.FormData =this.typeValidationForm.controls
     this.sharedService.socialMediaData$
     .subscribe(socialMediaData => {
       this.socialMediaData = socialMediaData
