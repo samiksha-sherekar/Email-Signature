@@ -12,11 +12,11 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./signature.component.css']
 })
 export class SignatureComponent implements OnInit {
-  sharedData:any=[]
+  sharedData:any
   imageData:any[]=[]
   contactData:any[]=[]
-  socialMediaData:any[]=[]
-  designData:any[]=[]
+  socialMediaData:any;
+  designData:any
   user: firebase.User | null = null
   
   showSuccess = false
@@ -55,7 +55,7 @@ getImageData(){
 getSocialMediaData(){
   this.sharedService.socialMediaData$
       .subscribe(socialMediaData => {
-        this.socialMediaData = socialMediaData
+        this.socialMediaData = socialMediaData;
       });
 }
 // Design Data Get
@@ -71,32 +71,32 @@ async onSubmit(){
     this.data={
       uid: this.user?.uid as string,
       basicForm: {  
-        fname:this.sharedData[0].fname.value,
-        lname:this.sharedData[0].lname.value,
-        email:this.sharedData[0].email.value,
-        mobileNo:this.sharedData[0].mobileNo.value,
-        company:this.sharedData[0].company.value,
-        position:this.sharedData[0].position.value,
-        department:this.sharedData[0].department.value,
-        address:this.sharedData[0].address.value,
-        contacts: this.sharedData[0].contacts.value,
+        fname:this.sharedData.fname.value,
+        lname:this.sharedData.lname.value,
+        email:this.sharedData.email.value,
+        mobileNo:this.sharedData.mobileNo.value,
+        company:this.sharedData.company.value,
+        position:this.sharedData.position.value,
+        department:this.sharedData.department.value,
+        address:this.sharedData.address.value,
+        contacts: this.sharedData.contacts.value,
       },
       imageForm : {
         profileImage : this.imageData[0].profileImage.value
       },
       socialMedia : {
-        facebookLink:this.socialMediaData[0].facebookLink.value,
-        twitterLink: this.socialMediaData[0].twitterLink.value,
-        youtubeLink:this.socialMediaData[0].youtubeLink.value,
-        instagramLink: this.socialMediaData[0].instagramLink.value,
-        linkedinLink:this.socialMediaData[0].linkedinLink.value,
-        pinterestLink: this.socialMediaData[0].pinterestLink.value,
+        facebookLink:this.socialMediaData.facebookLink.value,
+        twitterLink: this.socialMediaData.twitterLink.value,
+        youtubeLink:this.socialMediaData.youtubeLink.value,
+        instagramLink: this.socialMediaData.instagramLink.value,
+        linkedinLink:this.socialMediaData.linkedinLink.value,
+        pinterestLink: this.socialMediaData.pinterestLink.value,
       },
       designForm : {
-        fontFamily:this.designData[0].fontFamily.value,
-        fontSize:this.designData[0].fontSize.value,
-        templateColor:this.designData[0].templateColor.value,
-        backgroundColor:this.designData[0].backgroundColor.value,
+        fontFamily:this.designData.fontFamily.value,
+        fontSize:this.designData.fontSize.value,
+        templateColor:this.designData.templateColor.value,
+        backgroundColor:this.designData.backgroundColor.value,
       }
     }
       try {
@@ -116,7 +116,7 @@ async onSubmit(){
 }
 copyToClip() {
     let str:any
-    str= document.getElementById('email')
+    str= document.getElementById('email-signature')
     str= str.innerHTML;
     
     function listener(e: any) {

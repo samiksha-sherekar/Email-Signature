@@ -13,7 +13,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class BasicFormComponent implements OnInit {
   
-  FormData:any[]=[]
+  FormData:any
   basicData:BasicForm[]=[];
   user: firebase.User | null = null
   fname = new FormControl('Sam', [
@@ -65,8 +65,7 @@ export class BasicFormComponent implements OnInit {
       address: this.address,
       contacts: this.formBuilder.array([]),
     });
-    this.FormData.push(this.typeValidationForm.controls)
-
+    this.FormData=this.typeValidationForm.controls
     this.sharedService.basicData$
     .subscribe(basicData => {
       this.basicData = basicData

@@ -10,7 +10,7 @@ import firebase from 'firebase/compat/app'
   styleUrls: ['./design.component.css']
 })
 export class DesignComponent implements OnInit {
-  FormData:any[]=[]
+  FormData:any;
   designData:DesignForm[]=[]
   typeValidationForm!: FormGroup;
   user: firebase.User | null = null
@@ -40,7 +40,7 @@ export class DesignComponent implements OnInit {
       templateColor: this.templateColor,
       backgroundColor: this.backgroundColor,
     });
-    this.FormData.push(this.typeValidationForm.controls)
+    this.FormData=this.typeValidationForm.controls
     
     this.sharedService.designData$
     .subscribe(designData => {
