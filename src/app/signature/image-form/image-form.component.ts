@@ -24,6 +24,10 @@ export class ImageFormComponent implements OnInit {
   filename!: string;
   getImageData:any[]=[]
   img!: string | ArrayBuffer;
+
+  showSuccessMessage = '';
+  alertColor = 'primary';
+  dimensionError =false
   profileImage = new  FormControl('assets/images/profile.jpg', [
     Validators.required,
   ])
@@ -80,18 +84,23 @@ export class ImageFormComponent implements OnInit {
       reader.readAsDataURL(event.addedFiles[0]);
     }
     }
-    dimensionError =false
+    
     validateImageDimensions(file: File) {
       const image = new Image();
       image.onload = () => {
         const width = image.width;
         const height = image.height;
-        
         // Perform dimension validation here
-        if (width < 200 && height < 100) {
+        if (width <= 100 && height <= 100) {
           this.dimensionError = true;
+          
         } else {
-          this.dimensionError = false;
+          this.showSuccessMessage = "Image should be at least 100X100px."
+          this.dimensionError = true
+          this.alertColor = "success"
+          setTimeout(()=>{
+            this.dimensionError = false
+          },2000)
         }
       };
     

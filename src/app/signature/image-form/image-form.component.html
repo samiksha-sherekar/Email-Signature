@@ -19,4 +19,7 @@
             </div>
         </div>
     </div>
+    <div *ngIf="dimensionError" class="alert alert-{{alertColor}}" role="alert" style="position: fixed; bottom: 40px; right: 40px;">
+        {{ showSuccessMessage }}
+    </div>
 </div>
