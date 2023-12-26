@@ -117,8 +117,9 @@ async onSubmit(){
 copyToClip() {
     let str:any
     str= document.getElementById('email-signature')
+    console.log(str)
     str= str.innerHTML;
-    
+    console.log(str)
     function listener(e: any) {
       e.clipboardData.setData("text/html",  str);
       e.clipboardData.setData("text/plain" , str);
