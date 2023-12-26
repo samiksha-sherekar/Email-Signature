@@ -4,8 +4,9 @@
     border-radius: 24px;
 }
 img{
-	width : 60px; 
-	height: 30px
+	width : 30px; 
+	height: 20px;
+	margin-top: 10px;
 }    
 .wrapper,.copyright {
 	padding: 20px;

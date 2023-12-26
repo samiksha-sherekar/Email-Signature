@@ -6,7 +6,7 @@
         <div class=" col-8 col-lg-10 text-center">
             <h4>Email Signature</h4>
         </div>
-        <div class="col-4 col-lg-2 text-end">
+        <div class="col-4 col-lg-2 text-end" *ngIf="user!==null">
             <button  class="btn btn-block" (click)="logout($event)">Log Out</button>
         </div>
       </div>

@@ -22,12 +22,11 @@ export class ImageFormComponent implements OnInit {
   imageChangedEvent: any = '';
   image!: string;
   filename!: string;
-    file_label:string="Choose File";
-    img!: string | ArrayBuffer;
-    dummyImage="assets/images/facebook.png"
-    profileImage = new  FormControl('assets/images/profile.jpg', [
-      Validators.required,
-    ])
+  getImageData:any[]=[]
+  img!: string | ArrayBuffer;
+  profileImage = new  FormControl('assets/images/profile.jpg', [
+    Validators.required,
+  ])
   constructor(
     public formBuilder: FormBuilder,
     private sharedService: SignService,
@@ -105,7 +104,7 @@ export class ImageFormComponent implements OnInit {
       });
     }
 
-    getImageData:any[]=[]
+    
   getImageForm(){
     this.sharedService.getSignatureData().subscribe((res: any) => {
       this.getImageData = []

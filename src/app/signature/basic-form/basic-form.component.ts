@@ -15,7 +15,9 @@ export class BasicFormComponent implements OnInit {
   
   FormData:any
   basicData:BasicForm[]=[];
-  user: firebase.User | null = null
+  user: firebase.User | null = null;
+  getBFData:any[]=[]
+  
   fname = new FormControl('Sam', [
     Validators.required,
   ])
@@ -43,9 +45,7 @@ export class BasicFormComponent implements OnInit {
   contactFields = new  FormControl('', [
     Validators.required,
   ])
-  contactValue = new  FormControl('', [
-    Validators.required,
-  ])
+   
   typeValidationForm!: FormGroup;
   
   constructor(
@@ -63,8 +63,8 @@ export class BasicFormComponent implements OnInit {
       position: this.position,
       department: this.department,
       address: this.address,
-      contacts: this.formBuilder.array([]),
     });
+
     this.FormData=this.typeValidationForm.controls
     this.sharedService.basicData$
     .subscribe(basicData => {
@@ -72,15 +72,6 @@ export class BasicFormComponent implements OnInit {
     });
 }
 
-field(): FormGroup {
-  return this.formBuilder.group({
-    contactFields:'',
-    contactValue:''
-  });
-}
-get contacts(): FormArray {
-  return this.typeValidationForm.get('contacts') as FormArray;
-}
 get f() {
   return this.typeValidationForm.controls;
 }
@@ -89,7 +80,7 @@ get f() {
     this.getBasicForm()
   }
   
-  getBFData:any[]=[]
+  
   getBasicForm(){
   
     this.sharedService.getSignatureData().subscribe((res: any) => {
@@ -113,30 +104,8 @@ get f() {
           position: getForm.position,
           department: getForm.department,
           address: getForm.address,
-          // contacts: contactData !=null?contactData:[]
         })
       }
-
-      // if (contactData) {
-      //   contactData.forEach((element:any, i:any) => {
-      //     // contactData[i].contactFields=element.contactFields;
-      //     // contactData[i].contactValue=element.contactValue;
-      //     this.addField();
-      //   });
-      // }
-     
     })
-  }
-  // Dynamic form
-  addField() {
-    let fg = this.field();
-		this.contacts.push(this.field());
-    console.log("Add field")
-  }
-  removeField(i: number) {
-    this.contacts.removeAt(i);
-    // if (confirm('Are you sure you want to delete this element?')) {
-    //   this.contacts.removeAt(i);
-    // }
   }
 }

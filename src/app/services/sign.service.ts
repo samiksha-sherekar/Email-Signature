@@ -36,7 +36,6 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
   ) { 
     this.signCollection = db.collection('signature'),
     auth.user.subscribe(user => this.user = user)
-
   }
 
   async createSign(data: ISignature)  {
@@ -45,7 +44,6 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
 
   setData(updatedData:any) {
     this.basicData.next(updatedData);
-    console.log(this.basicData)
   }
   setImageData(updatedData:any) {
     this.imageData.next(updatedData);
