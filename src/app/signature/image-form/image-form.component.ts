@@ -95,9 +95,9 @@ export class ImageFormComponent implements OnInit {
           this.dimensionError = true;
           
         } else {
-          this.showSuccessMessage = "Image should be at least 100X100px."
+          this.showSuccessMessage = "Image should be 100X100px."
           this.dimensionError = true
-          this.alertColor = "success"
+          this.alertColor = "danger"
           setTimeout(()=>{
             this.dimensionError = false
           },2000)
