@@ -118,6 +118,7 @@ copyToClip() {
     let str:any
     str= document.getElementById('email-signature')
     console.log(str)
+    alert(str)
     str= str.innerHTML;
     console.log(str)
     function listener(e: any) {
