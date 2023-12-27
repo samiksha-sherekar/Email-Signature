@@ -2,7 +2,7 @@
 <div class="row">
     <ul class="text-center col-12 col-lg-12">
       <li><a class="active" [class.color]="tabValue === 'general'" (click)="tabChange('general')">General</a></li>
-      <li><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li>
+      <!-- <li><a [class.color]="tabValue === 'image'" (click)="tabChange('image')">Image</a></li> -->
       <li><a [class.color]="tabValue === 'social'" (click)="tabChange('social')">Social</a></li>
       <li><a [class.color]="tabValue === 'design'" (click)="tabChange('design')">Design</a></li>
     </ul>
@@ -12,9 +12,9 @@
     <div [hidden]="tabValue !== 'general'">
         <app-basic-form></app-basic-form>
     </div>
-    <div [hidden]="tabValue !== 'image'">
+    <!-- <div [hidden]="tabValue !== 'image'">
         <app-image-form ></app-image-form>
-    </div>
+    </div> -->
     <div [hidden]="tabValue !== 'social'">
         <app-social-form></app-social-form>
     </div>

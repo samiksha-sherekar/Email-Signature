@@ -7,10 +7,7 @@
             <div class="p-2" [style.background]="designData.backgroundColor.value">
                 <div class="main">
                     <div style="width: 100%;display: flex;" >
-                        <div style="width: 30%;">
-                            <img [src]="imageData[0].profileImage.value" alt="" style="width :70%;margin-top: 20px;margin-left: 20px;">
-                        </div>
-                        <div style="width: 60%;">
+                        <div style="width: 60%;margin-left: 20px;">
                             <span  [style.font-family]="designData.fontFamily.value" [style.font-size.px]="designData.fontSize.value" [style.color]="designData.templateColor.value">
                                 <label style=" font-weight: bold;"> {{sharedData.fname.value}}</label> &nbsp;
                                 <label style=" font-weight: bold;">{{sharedData.lname.value}}</label><br>
@@ -96,6 +93,11 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Image Start -->
+                        <!-- <div style="width: 30%;">
+                            <img [src]="imageData[0].profileImage.value" alt="" style="width :70%;margin-top: 20px;margin-left: 20px;">
+                        </div> -->
+                        <!-- Image End -->
                         <!-- <div [innerHTML]="sanitizedContent"></div> -->
                     </div>
             </div>

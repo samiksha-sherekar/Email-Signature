@@ -13,7 +13,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 })
 export class SignatureComponent implements OnInit {
   sharedData:any
-  imageData:any[]=[]
+  // imageData:any[]=[]
   socialMediaData:any;
   designData:any
   user: firebase.User | null = null;
@@ -32,7 +32,7 @@ export class SignatureComponent implements OnInit {
 
   ngOnInit() {
     this.getBasicData();
-    this.getImageData();
+    // this.getImageData();
     this.getSocialMediaData();
     this.getDesignData()
   }
@@ -45,14 +45,14 @@ getBasicData(){
       });
 }
 // Image Data Get
-getImageData(){
-  this.sharedService.imageData$
-      .subscribe(imageData => {
-        if(imageData){
-          this.imageData=imageData;
-        }
-      });
-}
+// getImageData(){
+//   this.sharedService.imageData$
+//       .subscribe(imageData => {
+//         if(imageData){
+//           this.imageData=imageData;
+//         }
+//       });
+// }
 // Social Media Get
 getSocialMediaData(){
   this.sharedService.socialMediaData$
@@ -86,9 +86,9 @@ async onSubmit(){
         department:this.sharedData.department.value,
         address:this.sharedData.address.value,
       },
-      imageForm : {
-        profileImage : this.imageData[0].profileImage.value
-      },
+      // imageForm : {
+      //   profileImage : this.imageData[0].profileImage.value
+      // },
       socialMedia : {
         facebookLink:this.socialMediaData.facebookLink.value,
         twitterLink: this.socialMediaData.twitterLink.value,
