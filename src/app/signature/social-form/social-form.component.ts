@@ -65,8 +65,10 @@ get f() {
     this.sharedService.setSocialMediaData(this.FormData);
   this.getSocialForm()
 }
-getBFData:any[]=[]
+getBFData:any
 getSocialForm(){
+  let data=this.sharedService.getLocalStorageData()
+
   var a=this.sharedService.getSignatureData()
   this.sharedService.getSignatureData().subscribe((res: any) => {
     this.getBFData = []
@@ -77,8 +79,9 @@ getSocialForm(){
         ...(element.payload.doc.data() as Record<string, unknown>)
       })
     })
-    if(this.getBFData.length>0){
-      var getForm:any=this.getBFData[0].socialMedia
+    
+    if(this.getBFData.length>0 ||data.socialMedia){
+      var getForm:any=this.getBFData.socialMedia ||data.socialMedia
     
       this.typeValidationForm.patchValue({
         facebookLink: getForm.facebookLink,

@@ -16,30 +16,30 @@ export class BasicFormComponent implements OnInit {
   FormData:any
   basicData:BasicForm[]=[];
   user: firebase.User | null = null;
-  getBFData:any[]=[]
-  
-  fname = new FormControl('Sam', [
+  getBFData:any
+  typesubmit: boolean=false;
+  fname = new FormControl('sam', [
     Validators.required,
   ])
-  lname = new FormControl('Smith', [
+  lname = new FormControl('smith', [
     Validators.required,
   ])
-  email = new FormControl('sam@gmail.com', [
+  email = new FormControl('demo@gmail.com', [
     Validators.required,
   ])
-  mobileNo = new FormControl('8888888888', [
+  mobileNo = new FormControl('9734343434', [
     Validators.required,
   ])
-  company = new FormControl('My Company', [
+  company = new FormControl('text', [
     Validators.required,
   ])
-  position = new FormControl ('Software Developer', [
+  position = new FormControl ('Developer', [
     Validators.required,
   ])
   department = new  FormControl('IT', [
     Validators.required,
   ])
-  address = new  FormControl('Street, City, Pin', [
+  address = new  FormControl('Pune', [
     Validators.required,
   ])
   contactFields = new  FormControl('', [
@@ -68,7 +68,7 @@ export class BasicFormComponent implements OnInit {
     this.FormData=this.typeValidationForm.controls
     this.sharedService.basicData$
     .subscribe(basicData => {
-      this.basicData = basicData
+      this.basicData = basicData;
     });
 }
 
@@ -82,7 +82,7 @@ get f() {
   
   
   getBasicForm(){
-  
+    let data=this.sharedService.getLocalStorageData()
     this.sharedService.getSignatureData().subscribe((res: any) => {
       this.getBFData = []
       res.forEach((element:any, x:any) => {
@@ -92,9 +92,8 @@ get f() {
           ...(element.payload.doc.data() as Record<string, unknown>)
         })
       })
-      if(this.getBFData.length>0){
-        var getForm=this.getBFData[0].basicForm
-
+      if(this.getBFData.length>0 ||data.basicForm){
+        var getForm=this.getBFData.basicForm || data.basicForm;
         this.typeValidationForm.patchValue({
           fname: getForm.fname,
           lname: getForm.lname,

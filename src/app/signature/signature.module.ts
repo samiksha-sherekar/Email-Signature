@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutComponent } from './layout/layout.component';
+import { DefaultSignComponent } from './signature/default-sign/default-sign.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LayoutComponent } from './layout/layout.component';
     ImageFormComponent,
     DesignComponent,
     SocialFormComponent,
-    LayoutComponent
+    LayoutComponent,
+    DefaultSignComponent
   ],
   imports: [
     CommonModule,

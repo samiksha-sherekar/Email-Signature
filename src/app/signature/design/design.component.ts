@@ -14,7 +14,7 @@ export class DesignComponent implements OnInit {
   designData:DesignForm[]=[]
   typeValidationForm!: FormGroup;
   user: firebase.User | null = null
-  getDesignData:any[]=[]
+  getDesignData:any
 
   fontFamily = new FormControl('arial', [
     Validators.required,
@@ -55,6 +55,8 @@ get f() {
     this.getDesignForm()
   }
   getDesignForm(){
+    let data=this.sharedService.getLocalStorageData()
+
     this.sharedService.getSignatureData().subscribe((res: any) => {
       this.getDesignData = []
       res.forEach((element:any, x:any) => {
@@ -64,8 +66,8 @@ get f() {
           ...(element.payload.doc.data() as Record<string, unknown>)
         })
       })
-      if(this.getDesignData.length>0){
-        var getForm:any=this.getDesignData[0].designForm
+      if(this.getDesignData.length>0 ||data.designForm){
+        var getForm=this.getDesignData.designForm ||data.designForm
 
         this.typeValidationForm.patchValue({
           backgroundColor: getForm.backgroundColor,

@@ -21,7 +21,7 @@ export class SignatureComponent implements OnInit {
   showSuccess = false;
   showSuccessMessage = '';
   alertColor = 'primary';
-
+  localStorageData:any
   constructor(
       public sharedService:SignService,
       private auth: AngularFireAuth,
@@ -35,13 +35,15 @@ export class SignatureComponent implements OnInit {
     // this.getImageData();
     this.getSocialMediaData();
     this.getDesignData()
+    this.localStorageData=this.sharedService.getLocalStorageData()
   }
+  
   // Basic Form
 getBasicData(){
   this.sharedService.basicData$
       .subscribe((basicData:any) => {
       if(basicData)
-      { this.sharedData=basicData;}
+      { this.sharedData=basicData || this.localStorageData.basicForm;}
       });
 }
 // Image Data Get
@@ -58,7 +60,7 @@ getSocialMediaData(){
   this.sharedService.socialMediaData$
       .subscribe(socialMediaData => {
         if(socialMediaData){
-          this.socialMediaData = socialMediaData;
+          this.socialMediaData = socialMediaData ||this.localStorageData.socialMedia;
         }
       });
 }
@@ -67,43 +69,45 @@ getDesignData(){
   this.sharedService.designData$
       .subscribe(designData => {
         if(designData){
-          this.designData = designData
+          this.designData = designData || this.localStorageData.designForm
         }
       });
 }
 
 async onSubmit(){
-  if(this.user?.uid){
-    this.data={
-      uid: this.user?.uid as string,
-      basicForm : {  
-        fname:this.sharedData.fname.value,
-        lname:this.sharedData.lname.value,
-        email:this.sharedData.email.value,
-        mobileNo:this.sharedData.mobileNo.value,
-        company:this.sharedData.company.value,
-        position:this.sharedData.position.value,
-        department:this.sharedData.department.value,
-        address:this.sharedData.address.value,
-      },
-      // imageForm : {
-      //   profileImage : this.imageData[0].profileImage.value
-      // },
-      socialMedia : {
-        facebookLink:this.socialMediaData.facebookLink.value,
-        twitterLink: this.socialMediaData.twitterLink.value,
-        youtubeLink:this.socialMediaData.youtubeLink.value,
-        instagramLink: this.socialMediaData.instagramLink.value,
-        linkedinLink:this.socialMediaData.linkedinLink.value,
-        pinterestLink: this.socialMediaData.pinterestLink.value,
-      },
-      designForm : {
-        fontFamily:this.designData.fontFamily.value,
-        fontSize:this.designData.fontSize.value,
-        templateColor:this.designData.templateColor.value,
-        backgroundColor:this.designData.backgroundColor.value,
-      }
+  // this.typesubmit = true;
+  this.data={
+    uid: this.user?.uid as string,
+    basicForm : {  
+      fname:this.sharedData.fname.value,
+      lname:this.sharedData.lname.value,
+      email:this.sharedData.email.value,
+      mobileNo:this.sharedData.mobileNo.value,
+      company:this.sharedData.company.value,
+      position:this.sharedData.position.value,
+      department:this.sharedData.department.value,
+      address:this.sharedData.address.value,
+    },
+    // imageForm : {
+    //   profileImage : this.imageData[0].profileImage.value
+    // },
+    socialMedia : {
+      facebookLink:this.socialMediaData.facebookLink.value,
+      twitterLink: this.socialMediaData.twitterLink.value,
+      youtubeLink:this.socialMediaData.youtubeLink.value,
+      instagramLink: this.socialMediaData.instagramLink.value,
+      linkedinLink:this.socialMediaData.linkedinLink.value,
+      pinterestLink: this.socialMediaData.pinterestLink.value,
+    },
+    designForm : {
+      fontFamily:this.designData.fontFamily.value,
+      fontSize:this.designData.fontSize.value,
+      templateColor:this.designData.templateColor.value,
+      backgroundColor:this.designData.backgroundColor.value,
     }
+  }
+  if(this.user?.uid){
+
       try {
         await this.sharedService.createSign(this.data)
         this.showSuccessMessage = "Success! New signature has been saved."
@@ -113,15 +117,21 @@ async onSubmit(){
           this.showSuccess = false
         },2000)
       } catch(e) {
+        
         this.showSuccessMessage = "An unexpected error occurred. Please try again later";
         this.alertColor = 'danger ';
       }
-  }else
+  }
+  else
   {
+    localStorage.setItem("data", JSON.stringify(this.data));
     this._router.navigateByUrl('/login')
   }
 
 }
+// getObject(key: any): object {
+//   return JSON.parse(localStorage.getItem(key)|| '{}');
+// }
 copyToClip() {
     let str:any
     str= document.getElementById('email-signature')

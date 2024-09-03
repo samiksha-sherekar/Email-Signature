@@ -54,7 +54,9 @@ private imageData: BehaviorSubject<ImageDetails[]> = new BehaviorSubject<ImageDe
   setDesignData(updatedData:any) {
     this.designData.next(updatedData);
   }
-
+  getLocalStorageData(){
+    return JSON.parse(localStorage.getItem('data')|| '{}');
+  }
   getSignatureData() { 
     return this.db.collection('signature').snapshotChanges()
   }
